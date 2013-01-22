@@ -1,0 +1,17 @@
+### Dedicated Child Theme ###
+
+== 10/1/2013 - v1.2 ==
+ * Genesis 1.9 upgrade fixes!
+ * Slider Fix!
+
+== 3/1/2013 - v1.1 ==
+ * Fixed Flickr Widget bug
+ * Imporved Custom Typography Options
+ * Fixed Contact form bug
+
+== 12/12/2012 - v1.0.1 ==
+ * Fixed bugs in Contact Form Page
+ * Imporved Contact Form Email Template
+
+== 9/12/2012 - v1.0 ==
+ * Initial Release
