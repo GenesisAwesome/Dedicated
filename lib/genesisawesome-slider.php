@@ -1,7 +1,7 @@
-<?php 
+<?php
 /**
  * GenesisAwesome Flexslider for Child Themes.
- * 
+ *
  * @package Genesis Child Theme
  * @author  Harish Dasari
  * @version 1.0
@@ -11,9 +11,9 @@
 add_action( 'genesis_after_header', 'genesisawesome_flexslider', 20 );
 /**
  * GenesisAwesome Responsive Flexslider
- * 
+ *
  * @since 1.0
- * 
+ *
  * @return null
  */
 function genesisawesome_flexslider() {
@@ -33,29 +33,33 @@ function genesisawesome_flexslider() {
 	/* THE CUSTOM LOOP */
 	if ( $ga_slider_query->have_posts() ) {
 	?>
-	<div id="dedicated-slider" class="flexslider">
-		<ul class="slides">
-		<?php
-		while ( $ga_slider_query->have_posts() ) {
-			$ga_slider_query->the_post();
-			if ( $slide_image = genesis_get_image( array( 'size' => 'dedicated-slider-image' ) ) ) {			
-				?>
-				<li>
-					<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php echo $slide_image; ?></a>
-					<div class="flex-caption">
-						<h2><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-					</div>
-				</li>
+	<div id="dedicated-slider">
+		<div class="wrap">
+			<div class="flexslider">
+				<ul class="slides">
 				<?php
-			}
-		}
-		?>
-		</ul>
+				while ( $ga_slider_query->have_posts() ) {
+					$ga_slider_query->the_post();
+					if ( $slide_image = genesis_get_image( array( 'size' => 'dedicated-slider-image' ) ) ) {
+						?>
+						<li>
+							<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php echo $slide_image; ?></a>
+							<div class="flex-caption">
+								<h2><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+							</div>
+						</li>
+						<?php
+					}
+				}
+				?>
+				</ul>
+			</div>
+		</div>
 	</div>
 	<?php
 	}
 
 	/* we should reset the custom query */
-	wp_reset_query();
+	wp_reset_postdata();
 
 }

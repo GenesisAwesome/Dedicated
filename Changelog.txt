@@ -1,5 +1,9 @@
 ### Dedicated Child Theme ###
 
+== 31/5/2014 - v2.0 ==
+ * Rewritten from scratch
+ * Genesis 2.0 Compatible
+
 == 10/1/2013 - v1.2 ==
  * Genesis 1.9 upgrade fixes!
  * Slider Fix!

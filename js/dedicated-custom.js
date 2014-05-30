@@ -1,30 +1,17 @@
 jQuery(document).ready(function($) {
 
-	var search_val = $('.searchinput').val();
-	$('.searchinput').focus(function(){
-		$(this).closest('#dedicated-search').addClass('searchfoucs');
-		if($(this).val() == search_val) $(this).val("");
-	}).blur(function(){
-		$(this).closest('#dedicated-search').removeClass('searchfoucs');
-		if($(this).val() === "") { $(this).val(search_val); }
+	$('.nav-primary .genesis-nav-menu').before('<span class="responsive-navigation"><i class="fa fa-bars"></i> Navigation</span>');
+	$('.nav-primary .sub-menu').before( '<span class="responsive-sub-nav"></span>' );
+
+	$('.responsive-navigation, .responsive-sub-nav').click(function(){
+		$(this).toggleClass('nav-active').next('.genesis-nav-menu, .sub-menu').slideToggle();
 	});
 
-	$('ul.menu-primary li a').append('<span class="bar"></span>');
-
-	$('.menu-primary').after(function(){
-		return $('<div id="dedicated-mobile"><a class="trigger" href="#">Navigation<span></span></a></div>').hide();
-	});
-
-	$('ul.menu-primary:first').clone().attr('id', 'dedicated-mobilemenu').removeAttr('class').hide().appendTo('#dedicated-mobile');
-	$('#dedicated-mobile a.trigger').addClass('close');
-	$('#dedicated-mobile a.trigger').click(function(){
-		$this = $(this);
-		if($this.hasClass('close')){
-			$this.removeClass('close').addClass('open');
-			$this.parent().find('#dedicated-mobilemenu').slideDown();
-		} else {
-			$this.removeClass('open').addClass('close');
-			$this.parent().find('#dedicated-mobilemenu').slideUp();
+	// Reset Nav
+	$(window).resize(function(e) {
+		if ( window.innerWidth > 767 ) {
+			$('.nav-primary .genesis-nav-menu, .nav-primary .sub-menu').removeAttr('style');
+			$('.responsive-navigation, .responsive-sub-nav').removeClass('nav-active');
 		}
 	});
 
@@ -35,22 +22,22 @@ jQuery(document).ready(function($) {
 	});
 
 	$('.flexslider').flexslider({
-		selector          : '.slides > li',
-		animation         : 'slide',
-		easing            : 'swing',
-		direction         : 'horizontal',
-		animationLoop     : true,
-		smoothHeight       : true,
-		startAt           : 0,
-		slideshow         : true,
-		slideshowSpeed    : 7000,
-		animationSpeed    : 600,
-		initDelay         : 0,
-		pauseOnAction     : true,
-		pauseOnHover      : true
+		selector       : '.slides > li',
+		animation      : 'slide',
+		easing         : 'swing',
+		direction      : 'horizontal',
+		animationLoop  : true,
+		smoothHeight   : true,
+		startAt        : 0,
+		slideshow      : true,
+		slideshowSpeed : 7000,
+		animationSpeed : 600,
+		initDelay      : 0,
+		pauseOnAction  : true,
+		pauseOnHover   : true
 	});
 
-	$('body').fitVids();
+	$('.site-container').fitVids();
 
 	$('.dedicated-thumb a').each(function() {
 		$(this).fancybox({
